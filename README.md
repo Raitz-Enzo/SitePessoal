@@ -4,7 +4,7 @@
 
 **Objetivo:** criar a primeira versão do site pessoal usando somente HTML (sem CSS, frameworks ou JavaScript), com estrutura semântica, imagem, navegação interna, links para perfis e um formulário de contato demonstrativo.
 
-**Site publicado:** _adicionar aqui o link do GitHub Pages depois de publicar_
+**Site publicado:** https://raitz-enzo.github.io/SitePessoal/
 
 ## Como abrir
 
