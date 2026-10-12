@@ -1,0 +1,517 @@
+/* Etapa 2: apresentação do site pessoal. Estrutura e conteúdo ficam no HTML.
+   Sem JavaScript: o tema segue o sistema e pode ser invertido pelo
+   checkbox #tema (estado :checked) através da pseudoclasse :has(). */
+
+/* Tema claro (padrão) */
+:root {
+    --fundo: #faf8f4;
+    --fundo-suave: #f0ece4;
+    --texto: #1d1c1a;
+    --texto-suave: #5d5a54;
+    --linha: #dcd6ca;
+    --destaque: #0f766e;
+    --destaque-texto: #ffffff;
+    --nav-fundo: rgba(250, 248, 244, 0.92);
+    color-scheme: light;
+}
+
+/* Tema escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #101513;
+        --fundo-suave: #18201d;
+        --texto: #e9eeea;
+        --texto-suave: #a3afa8;
+        --linha: #2b3631;
+        --destaque: #5eead4;
+        --destaque-texto: #0b1210;
+        --nav-fundo: rgba(16, 21, 19, 0.92);
+        color-scheme: dark;
+    }
+
+    /* Sistema escuro + checkbox marcado = volta ao claro */
+    :root:has(#tema:checked) {
+        --fundo: #faf8f4;
+        --fundo-suave: #f0ece4;
+        --texto: #1d1c1a;
+        --texto-suave: #5d5a54;
+        --linha: #dcd6ca;
+        --destaque: #0f766e;
+        --destaque-texto: #ffffff;
+        --nav-fundo: rgba(250, 248, 244, 0.92);
+        color-scheme: light;
+    }
+}
+
+/* Sistema claro + checkbox marcado = escuro */
+@media (prefers-color-scheme: light) {
+    :root:has(#tema:checked) {
+        --fundo: #101513;
+        --fundo-suave: #18201d;
+        --texto: #e9eeea;
+        --texto-suave: #a3afa8;
+        --linha: #2b3631;
+        --destaque: #5eead4;
+        --destaque-texto: #0b1210;
+        --nav-fundo: rgba(16, 21, 19, 0.92);
+        color-scheme: dark;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* O checkbox só controla o tema; não precisa aparecer */
+#tema {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+}
+
+a {
+    color: var(--destaque);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+a:focus-visible,
+#tema:focus-visible + nav .alternar-tema {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+/* Menu fixo no topo */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--nav-fundo);
+    border-bottom: 1px solid var(--linha);
+    text-align: center;
+}
+
+nav ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    color: var(--texto-suave);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--destaque);
+}
+
+nav .marca {
+    margin-right: 0.75rem;
+    color: var(--texto);
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+}
+
+.alternar-tema {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.8rem;
+    border: 1px solid var(--linha);
+    border-radius: 2rem;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.alternar-tema:hover {
+    border-color: var(--destaque);
+    color: var(--destaque);
+}
+
+/* Apresentação */
+header,
+main,
+footer {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+figure {
+    margin: 0 0 1.5rem;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--destaque);
+    padding: 5px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+.etiqueta {
+    margin: 0 0 0.5rem;
+    color: var(--destaque);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0 0 0.75rem;
+    font-size: 3.2rem;
+    letter-spacing: -0.02em;
+}
+
+.apresentacao {
+    max-width: 34rem;
+    margin: 0 auto 1.5rem;
+    color: var(--texto-suave);
+    font-size: 1.15rem;
+}
+
+.chamadas {
+    margin: 0;
+}
+
+.botao,
+.botao-secundario {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.6rem 1.4rem;
+    border: 2px solid var(--destaque);
+    border-radius: 2rem;
+    text-decoration: none;
+}
+
+.botao {
+    background-color: var(--destaque);
+    color: var(--destaque-texto);
+}
+
+.botao:hover {
+    text-decoration: underline;
+}
+
+.botao-secundario:hover {
+    background-color: var(--fundo-suave);
+}
+
+/* Seções: sem caixas, só linhas e espaço */
+section {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--linha);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.9rem;
+}
+
+h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1.2rem;
+}
+
+.data {
+    margin-top: 0;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+/* Formação em linha do tempo */
+.linha-do-tempo {
+    margin: 1rem 0;
+    padding: 0 0 0 1.5rem;
+    border-left: 2px solid var(--linha);
+    list-style: none;
+}
+
+.linha-do-tempo li {
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.linha-do-tempo li::before {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    left: -1.95rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background-color: var(--destaque);
+}
+
+/* Experiências */
+article {
+    margin-bottom: 1.75rem;
+}
+
+article ul {
+    padding-left: 1.2rem;
+}
+
+article li {
+    margin-bottom: 0.3rem;
+}
+
+/* Habilidades em etiquetas */
+.etiquetas {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.etiquetas li {
+    display: inline-block;
+    margin: 0 0.35rem 0.5rem 0;
+    padding: 0.2rem 0.85rem;
+    border: 1px solid var(--linha);
+    border-radius: 2rem;
+    background-color: var(--fundo-suave);
+    font-size: 0.9rem;
+}
+
+/* Perfis */
+.perfis {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.perfis li {
+    display: inline-block;
+    margin-right: 1.25rem;
+}
+
+.perfis a {
+    font-size: 1.1rem;
+}
+
+/* Contato */
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
+}
+
+fieldset {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--linha);
+    border-radius: 0.5rem;
+}
+
+legend {
+    padding: 0 0.5rem;
+    color: var(--texto-suave);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 30rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--linha);
+    border-radius: 0.4rem;
+    background-color: var(--fundo-suave);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: 2px solid var(--destaque);
+    border-color: var(--destaque);
+}
+
+button {
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--destaque);
+    color: var(--destaque-texto);
+    font-size: 1rem;
+}
+
+button:disabled {
+    background-color: var(--linha);
+    color: var(--texto-suave);
+    cursor: not-allowed;
+}
+
+/* Rodapé */
+footer {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 1px solid var(--linha);
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Slideshow de destaques: troca automática só com CSS (4 slides x 5s) */
+.slideshow {
+    position: relative;
+    height: 15rem;
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 1.25rem 0;
+    opacity: 0;
+    animation: trocar-slide 20s infinite;
+}
+
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.slide:nth-child(4) {
+    animation-delay: 15s;
+}
+
+.slideshow:hover .slide {
+    animation-play-state: paused;
+}
+
+.slide-numero {
+    margin: 0;
+    color: var(--destaque);
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+}
+
+.slide h3 {
+    margin-top: 0;
+}
+
+@keyframes trocar-slide {
+    0% {
+        opacity: 0;
+    }
+    5%,
+    25% {
+        opacity: 1;
+    }
+    30%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Quem prefere menos movimento vê todos os slides, um sob o outro */
+@media (prefers-reduced-motion: reduce) {
+    .slideshow {
+        height: auto;
+    }
+
+    .slide {
+        position: static;
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/* Responsividade: ajustes para telas pequenas */
+@media (max-width: 40rem) {
+    body {
+        font-size: 1rem;
+    }
+
+    header,
+    main,
+    footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    nav {
+        padding: 0.5rem 0.75rem;
+    }
+
+    nav a {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .slideshow {
+        height: 19rem;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+}

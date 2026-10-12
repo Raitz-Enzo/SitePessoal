@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site pessoal de Enzo Raitz, estudante de Engenharia de Software na UTFPR e analista de Qualidade de Software: formação, experiências, habilidades e contato.">
-    <title>Enzo Raitz | Site pessoal</title>
+    <title>Enzo Raitz | Site pessoal com CSS</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+    <input type="checkbox" id="tema" aria-label="Inverter entre tema claro e escuro">
+
+    <nav aria-label="Navegação principal">
+        <a class="marca" href="#inicio">Enzo Raitz</a>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#experiencias">Experiências</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#perfis">Perfis</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <label class="alternar-tema" for="tema">Claro / Escuro</label>
+    </nav>
+
     <header id="inicio">
-        <h1>Enzo Raitz</h1>
-        <p>Estudante de Engenharia de Software na UTFPR e Analista de Garantia da Qualidade de Software (QA).</p>
         <figure>
             <img src="imagens/FotoPessoal.jpg" alt="Foto de Enzo Raitz" width="240" height="240">
             <figcaption>Enzo Raitz, 19 anos.</figcaption>
         </figure>
-        <nav aria-label="Navegação principal">
-            <ul>
-                <li><a href="#sobre">Sobre mim</a></li>
-                <li><a href="#formacao">Formação acadêmica</a></li>
-                <li><a href="#experiencias">Experiências e interesses</a></li>
-                <li><a href="#habilidades">Habilidades e tecnologias</a></li>
-                <li><a href="#perfis">Perfis profissionais</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <p class="etiqueta">Engenharia de Software &middot; Qualidade de Software</p>
+        <h1>Enzo Raitz</h1>
+        <p class="apresentacao">Estudante de Engenharia de Software na UTFPR e Analista de Garantia da Qualidade de Software (QA).</p>
+        <p class="chamadas">
+            <a class="botao" href="#contato">Fale comigo</a>
+            <a class="botao-secundario" href="#experiencias">Ver experiências</a>
+        </p>
     </header>
 
     <main>
@@ -33,23 +44,49 @@
             <p>Meu objetivo profissional é atuar em Qualidade de Software, Testes ou Gestão de Produto, contribuindo para a melhoria contínua de sistemas, da experiência do usuário e dos processos de desenvolvimento.</p>
         </section>
 
+        <section id="destaques" aria-label="Destaques">
+            <h2>Destaques</h2>
+            <div class="slideshow" aria-live="off">
+                <figure class="slide">
+                    <p class="slide-numero">01</p>
+                    <h3>Qualidade de Software na prática</h3>
+                    <p>Há cerca de um ano na CISS, planejando e executando testes em módulos de ERP e Frente de Caixa antes da liberação para o cliente.</p>
+                </figure>
+                <figure class="slide">
+                    <p class="slide-numero">02</p>
+                    <h3>Testes de API e automação</h3>
+                    <p>Validação de integrações com Postman e automação de testes funcionais com UFT para reduzir o tempo das regressões.</p>
+                </figure>
+                <figure class="slide">
+                    <p class="slide-numero">03</p>
+                    <h3>Formação em Engenharia de Software</h3>
+                    <p>Bacharelado na UTFPR, Câmpus Dois Vizinhos, depois do técnico em Informática integrado ao ensino médio no IFSC.</p>
+                </figure>
+                <figure class="slide">
+                    <p class="slide-numero">04</p>
+                    <h3>Visão de produto</h3>
+                    <p>Interesse em transformar requisitos de negócio em critérios de aceitação e em contribuir com a experiência do usuário.</p>
+                </figure>
+            </div>
+        </section>
+
         <section id="formacao">
             <h2>Formação acadêmica</h2>
-            <ul>
-                <li><strong>Bacharelado em Engenharia de Software</strong> - Universidade Tecnológica Federal do Paraná (UTFPR), Câmpus Dois Vizinhos, 2025 até o momento.</li>
-                <li><strong>Técnico em Informática Integrado ao Ensino Médio</strong> - Instituto Federal de Santa Catarina (IFSC), Câmpus Caçador, 2022 a 2024.</li>
+            <ul class="linha-do-tempo">
+                <li><strong>Bacharelado em Engenharia de Software</strong><br>Universidade Tecnológica Federal do Paraná (UTFPR), Câmpus Dois Vizinhos<br><span class="data">2025 até o momento</span></li>
+                <li><strong>Técnico em Informática Integrado ao Ensino Médio</strong><br>Instituto Federal de Santa Catarina (IFSC), Câmpus Caçador<br><span class="data">2022 a 2024</span></li>
             </ul>
             <h3>Formação complementar</h3>
-            <ul>
-                <li><strong>Inglês Pré-Avançado</strong> - CNA Idiomas, 2022 até o momento.</li>
+            <ul class="linha-do-tempo">
+                <li><strong>Inglês Pré-Avançado</strong><br>CNA Idiomas<br><span class="data">2022 até o momento</span></li>
             </ul>
         </section>
 
         <section id="experiencias">
             <h2>Experiências e interesses</h2>
             <article>
-                <h3>Analista de Garantia da Qualidade de Software - CISS S.A. Gestão para o Varejo</h3>
-                <p><time datetime="2025-04">Abril de 2025</time> até o momento.</p>
+                <h3>Analista de Garantia da Qualidade de Software</h3>
+                <p class="data">CISS S.A. Gestão para o Varejo &middot; <time datetime="2025-04">abril de 2025</time> até o momento</p>
                 <ul>
                     <li>Elaboração de roteiros e planos de teste para módulos de ERP e Frente de Caixa, cobrindo cenários funcionais, regras de negócio e testes de regressão.</li>
                     <li>Execução de testes end-to-end e testes de API com Postman, validando integrações entre módulos antes da liberação para o cliente.</li>
@@ -59,8 +96,8 @@
                 </ul>
             </article>
             <article>
-                <h3>Auxiliar de TI - Foxnet Caçador</h3>
-                <p><time datetime="2021-06">Junho de 2021</time> a <time datetime="2022-01">janeiro de 2022</time>.</p>
+                <h3>Auxiliar de TI</h3>
+                <p class="data">Foxnet Caçador &middot; <time datetime="2021-06">junho de 2021</time> a <time datetime="2022-01">janeiro de 2022</time></p>
                 <ul>
                     <li>Suporte técnico ao cliente.</li>
                     <li>Solução de problemas técnicos via acesso remoto.</li>
@@ -75,21 +112,26 @@
 
         <section id="habilidades">
             <h2>Habilidades e tecnologias</h2>
-            <ul>
-                <li>Testes de software: funcionais, de regressão, end-to-end e de aceitação (UAT).</li>
-                <li>Testes de API com Postman.</li>
-                <li>Automação de testes funcionais com UFT.</li>
-                <li>Elaboração de planos de teste, critérios de aceitação e manuais de usuário.</li>
-                <li>Desenvolvimento Web: HTML (em estudo na disciplina Programação para Web 1).</li>
-                <li>Inglês em nível pré-avançado.</li>
+            <ul class="etiquetas">
+                <li>Testes funcionais</li>
+                <li>Testes de regressão</li>
+                <li>Testes end-to-end</li>
+                <li>UAT</li>
+                <li>Postman</li>
+                <li>UFT</li>
+                <li>Planos de teste</li>
+                <li>Critérios de aceitação</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Inglês pré-avançado</li>
             </ul>
         </section>
 
         <section id="perfis">
             <h2>Perfis profissionais</h2>
-            <ul>
-                <li><a href="https://github.com/Raitz-Enzo">GitHub de Enzo Raitz</a></li>
-                <li><a href="https://www.linkedin.com/in/enzo-raitz-384717203">LinkedIn de Enzo Raitz</a></li>
+            <ul class="perfis">
+                <li><a href="https://github.com/Raitz-Enzo">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/enzo-raitz-384717203">LinkedIn</a></li>
             </ul>
         </section>
 
