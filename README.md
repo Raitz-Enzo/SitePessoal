@@ -26,5 +26,3 @@ Projeto incremental: o mesmo site pessoal evolui a cada etapa, mantendo o histó
 - tema claro e escuro: segue o tema do sistema (`prefers-color-scheme`) e o botão "Claro / Escuro" do menu inverte a escolha, só com CSS;
 - slideshow de destaques no meio da página, com troca automática por `@keyframes`, pausa ao passar o mouse e sem animação para quem prefere menos movimento;
 - responsividade básica: `max-width` em `rem`, imagem com `max-width: 100%` e uma media query para telas pequenas.
-
-**Site publicado:** https://raitz-enzo.github.io/SitePessoal/
