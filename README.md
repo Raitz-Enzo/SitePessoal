@@ -24,5 +24,7 @@ Projeto incremental: o mesmo site pessoal evolui a cada etapa, mantendo o histó
 - organização visual das seções no formato de landing page: apresentação com botões, formação em linha do tempo e habilidades em etiquetas;
 - estados `:hover`, `:focus` e `:disabled`;
 - tema claro e escuro: segue o tema do sistema (`prefers-color-scheme`) e o botão "Claro / Escuro" do menu inverte a escolha, só com CSS;
-- slideshow de destaques no meio da página, com troca automática por `@keyframes`, pausa ao passar o mouse e sem animação para quem prefere menos movimento;
+- slideshow de destaques no meio da página, controlado pelo usuário (botões Anterior/Próximo e pontos), só com CSS;
+- `<head>` completo: favicon (`imagens/icone.svg`, com PNG de reserva), meta description, Open Graph e Twitter Cards com imagem de pré-visualização (`imagens/capa.png`);
+- links externos abrindo em nova aba (`target="_blank"`);
 - responsividade básica: `max-width` em `rem`, imagem com `max-width: 100%` e uma media query para telas pequenas.

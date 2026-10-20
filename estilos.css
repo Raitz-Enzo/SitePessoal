@@ -403,8 +403,15 @@ footer {
     text-align: center;
 }
 
-/* Slideshow de destaques: troca automática só com CSS (4 slides x 5s) */
-.slideshow {
+/* Slideshow de destaques: controlado pelo usuário (botões e pontos), só com CSS.
+   Os inputs radio guardam qual slide está ativo; os labels funcionam como botões. */
+.slide-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slides {
     position: relative;
     height: 15rem;
     border-top: 1px solid var(--linha);
@@ -420,23 +427,16 @@ footer {
     margin: 0;
     padding: 1.25rem 0;
     opacity: 0;
-    animation: trocar-slide 20s infinite;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
 }
 
-.slide:nth-child(2) {
-    animation-delay: 5s;
-}
-
-.slide:nth-child(3) {
-    animation-delay: 10s;
-}
-
-.slide:nth-child(4) {
-    animation-delay: 15s;
-}
-
-.slideshow:hover .slide {
-    animation-play-state: paused;
+#slide1:checked ~ .slides .slide:nth-child(1),
+#slide2:checked ~ .slides .slide:nth-child(2),
+#slide3:checked ~ .slides .slide:nth-child(3),
+#slide4:checked ~ .slides .slide:nth-child(4) {
+    opacity: 1;
+    visibility: visible;
 }
 
 .slide-numero {
@@ -446,34 +446,81 @@ footer {
     font-size: 2.5rem;
 }
 
+.slide-numero span {
+    color: var(--texto-suave);
+    font-size: 1rem;
+}
+
 .slide h3 {
     margin-top: 0;
 }
 
-@keyframes trocar-slide {
-    0% {
-        opacity: 0;
-    }
-    5%,
-    25% {
-        opacity: 1;
-    }
-    30%,
-    100% {
-        opacity: 0;
-    }
+.slide-controles {
+    position: absolute;
+    right: 0;
+    bottom: 0.75rem;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
 }
 
-/* Quem prefere menos movimento vê todos os slides, um sob o outro */
-@media (prefers-reduced-motion: reduce) {
-    .slideshow {
-        height: auto;
-    }
+.seta {
+    padding: 0.2rem 0.9rem;
+    border: 1px solid var(--linha);
+    border-radius: 2rem;
+    color: var(--destaque);
+    font-size: 0.9rem;
+    font-weight: normal;
+    cursor: pointer;
+}
 
+.seta:hover {
+    border-color: var(--destaque);
+    background-color: var(--fundo-suave);
+}
+
+.pontos {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+.pontos label {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 0.3rem;
+    border: 2px solid var(--destaque);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#slide1:checked ~ .pontos label:nth-child(1),
+#slide2:checked ~ .pontos label:nth-child(2),
+#slide3:checked ~ .pontos label:nth-child(3),
+#slide4:checked ~ .pontos label:nth-child(4) {
+    background-color: var(--destaque);
+}
+
+#slide1:focus-visible ~ .pontos label:nth-child(1),
+#slide2:focus-visible ~ .pontos label:nth-child(2),
+#slide3:focus-visible ~ .pontos label:nth-child(3),
+#slide4:focus-visible ~ .pontos label:nth-child(4) {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+.so-leitor {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
     .slide {
-        position: static;
-        opacity: 1;
-        animation: none;
+        transition: none;
     }
 }
 
@@ -507,8 +554,8 @@ footer {
         font-size: 1.6rem;
     }
 
-    .slideshow {
-        height: 19rem;
+    .slides {
+        height: 17rem;
     }
 
     section {

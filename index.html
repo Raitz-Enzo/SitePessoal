@@ -6,6 +6,30 @@
     <meta name="description" content="Site pessoal de Enzo Raitz, estudante de Engenharia de Software na UTFPR e analista de Qualidade de Software: formação, experiências, habilidades e contato.">
     <title>Enzo Raitz | Site pessoal com CSS</title>
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="imagens/icone.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="imagens/icone.png">
+    <link rel="apple-touch-icon" href="imagens/icone.png">
+
+    <!-- Open Graph (WhatsApp, Facebook e outros) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Enzo Raitz">
+    <meta property="og:title" content="Enzo Raitz | Site pessoal">
+    <meta property="og:description" content="Site pessoal de Enzo Raitz, estudante de Engenharia de Software na UTFPR e analista de Qualidade de Software: formação, experiências, habilidades e contato.">
+    <meta property="og:url" content="https://raitz-enzo.github.io/SitePessoal/">
+    <meta property="og:image" content="https://raitz-enzo.github.io/SitePessoal/imagens/capa.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Foto de Enzo Raitz ao lado do nome e da área de atuação">
+
+    <!-- Twitter Card (X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Enzo Raitz | Site pessoal">
+    <meta name="twitter:description" content="Site pessoal de Enzo Raitz, estudante de Engenharia de Software na UTFPR e analista de Qualidade de Software: formação, experiências, habilidades e contato.">
+    <meta name="twitter:image" content="https://raitz-enzo.github.io/SitePessoal/imagens/capa.png">
+    <meta name="twitter:image:alt" content="Foto de Enzo Raitz ao lado do nome e da área de atuação">
 </head>
 <body>
     <input type="checkbox" id="tema" aria-label="Inverter entre tema claro e escuro">
@@ -46,27 +70,55 @@
 
         <section id="destaques" aria-label="Destaques">
             <h2>Destaques</h2>
-            <div class="slideshow" aria-live="off">
-                <figure class="slide">
-                    <p class="slide-numero">01</p>
-                    <h3>Qualidade de Software na prática</h3>
-                    <p>Há cerca de um ano na CISS, planejando e executando testes em módulos de ERP e Frente de Caixa antes da liberação para o cliente.</p>
-                </figure>
-                <figure class="slide">
-                    <p class="slide-numero">02</p>
-                    <h3>Testes de API e automação</h3>
-                    <p>Validação de integrações com Postman e automação de testes funcionais com UFT para reduzir o tempo das regressões.</p>
-                </figure>
-                <figure class="slide">
-                    <p class="slide-numero">03</p>
-                    <h3>Formação em Engenharia de Software</h3>
-                    <p>Bacharelado na UTFPR, Câmpus Dois Vizinhos, depois do técnico em Informática integrado ao ensino médio no IFSC.</p>
-                </figure>
-                <figure class="slide">
-                    <p class="slide-numero">04</p>
-                    <h3>Visão de produto</h3>
-                    <p>Interesse em transformar requisitos de negócio em critérios de aceitação e em contribuir com a experiência do usuário.</p>
-                </figure>
+            <div class="slideshow" role="group" aria-label="Destaques">
+                <input type="radio" name="destaque" id="slide1" class="slide-radio" aria-label="Destaque 1 de 4" checked>
+                <input type="radio" name="destaque" id="slide2" class="slide-radio" aria-label="Destaque 2 de 4">
+                <input type="radio" name="destaque" id="slide3" class="slide-radio" aria-label="Destaque 3 de 4">
+                <input type="radio" name="destaque" id="slide4" class="slide-radio" aria-label="Destaque 4 de 4">
+                <div class="slides">
+                    <figure class="slide">
+                        <p class="slide-numero">01 <span>/ 04</span></p>
+                        <h3>Qualidade de Software na prática</h3>
+                        <p>Há cerca de um ano na CISS, planejando e executando testes em módulos de ERP e Frente de Caixa antes da liberação para o cliente.</p>
+                        <p class="slide-controles">
+                            <label for="slide4" class="seta" title="Destaque anterior">&larr; Anterior</label>
+                            <label for="slide2" class="seta" title="Próximo destaque">Próximo &rarr;</label>
+                        </p>
+                    </figure>
+                    <figure class="slide">
+                        <p class="slide-numero">02 <span>/ 04</span></p>
+                        <h3>Testes de API e automação</h3>
+                        <p>Validação de integrações com Postman e automação de testes funcionais com UFT para reduzir o tempo das regressões.</p>
+                        <p class="slide-controles">
+                            <label for="slide1" class="seta" title="Destaque anterior">&larr; Anterior</label>
+                            <label for="slide3" class="seta" title="Próximo destaque">Próximo &rarr;</label>
+                        </p>
+                    </figure>
+                    <figure class="slide">
+                        <p class="slide-numero">03 <span>/ 04</span></p>
+                        <h3>Formação em Engenharia de Software</h3>
+                        <p>Bacharelado na UTFPR, Câmpus Dois Vizinhos, depois do técnico em Informática integrado ao ensino médio no IFSC.</p>
+                        <p class="slide-controles">
+                            <label for="slide2" class="seta" title="Destaque anterior">&larr; Anterior</label>
+                            <label for="slide4" class="seta" title="Próximo destaque">Próximo &rarr;</label>
+                        </p>
+                    </figure>
+                    <figure class="slide">
+                        <p class="slide-numero">04 <span>/ 04</span></p>
+                        <h3>Visão de produto</h3>
+                        <p>Interesse em transformar requisitos de negócio em critérios de aceitação e em contribuir com a experiência do usuário.</p>
+                        <p class="slide-controles">
+                            <label for="slide3" class="seta" title="Destaque anterior">&larr; Anterior</label>
+                            <label for="slide1" class="seta" title="Próximo destaque">Próximo &rarr;</label>
+                        </p>
+                    </figure>
+                </div>
+                <div class="pontos">
+                    <label for="slide1" title="Ir para o destaque 1"><span class="so-leitor">Destaque 1</span></label>
+                    <label for="slide2" title="Ir para o destaque 2"><span class="so-leitor">Destaque 2</span></label>
+                    <label for="slide3" title="Ir para o destaque 3"><span class="so-leitor">Destaque 3</span></label>
+                    <label for="slide4" title="Ir para o destaque 4"><span class="so-leitor">Destaque 4</span></label>
+                </div>
             </div>
         </section>
 
@@ -130,8 +182,8 @@
         <section id="perfis">
             <h2>Perfis profissionais</h2>
             <ul class="perfis">
-                <li><a href="https://github.com/Raitz-Enzo">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/enzo-raitz-384717203">LinkedIn</a></li>
+                <li><a href="https://github.com/Raitz-Enzo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/enzo-raitz-384717203" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
         </section>
 
